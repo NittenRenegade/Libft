@@ -1,26 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalnum.c                                          :+:      :+:    :+:   */
+/*   isascii.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coskelet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 21:24:44 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/07 21:38:36 by                  ###   ########.fr       */
+/*   Created: 2021/10/08 17:40:41 by coskelet          #+#    #+#             */
+/*   Updated: 2021/10/08 17:56:45 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
-
-int	isalnum(int c)
+int	isascii(int c)
 {
-	int	res;
-
-	res = isalpha(c);
-	if (res != 0)
-		return (res);
-	res = isdigit(c);
-	if (res != 0)
-		return (res);
+	if (c < 0 || c > 127)
+		return (1);
 	return (0);
 }

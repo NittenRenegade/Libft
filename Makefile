@@ -1,4 +1,4 @@
-SRCS	= isalpha.c isdigit.c isalnum.c
+SRCS	= isalpha.c isdigit.c isalnum.c isascii.c strlen.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -37,6 +37,10 @@ TOBJS	= ${TFILE:.c=.o}
 test:	${TOBJS}
 		${CC} ${CFLAGS} ${TFILE} -L. -lft
 		./a.out ${ARGS}
+
+retest:
+		${CC} ${CFLAGS} ${TFILE} -L. -lft
+
 tclean:	fclean
 			${RM} ${TOBJS}
 			${RM} ${TNAME}

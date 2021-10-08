@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalnum.c                                          :+:      :+:    :+:   */
+/*   strlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coskelet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 21:24:44 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/07 21:38:36 by                  ###   ########.fr       */
+/*   Created: 2021/10/08 20:44:34 by coskelet          #+#    #+#             */
+/*   Updated: 2021/10/08 21:05:07 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	isalnum(int c)
+size_t 	strlen(const char *s)
 {
-	int	res;
+	int		len;
 
-	res = isalpha(c);
-	if (res != 0)
-		return (res);
-	res = isdigit(c);
-	if (res != 0)
-		return (res);
-	return (0);
+	len = 0;
+	while (1)
+	{
+		if (*(s+len) == 0)
+			break;
+		len++;
+	}
+	return (len);
 }
