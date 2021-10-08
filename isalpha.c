@@ -12,9 +12,9 @@
 
 int	isalpha(int c)
 {
-	if (c >= 101 && c <= 132)
+	if (c >= 65 && c <= 90)
 		return (c);
-	if (c >= 141 && c <= 172)
+	if (c >= 97 && c <= 122)
 		return (c);
 	return (0);
 }

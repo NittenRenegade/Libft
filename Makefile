@@ -1,14 +1,14 @@
-SRCS	= isalpha.c isgigit.c
+SRCS	= isalpha.c isdigit.c isalnum.c
 
 OBJS	= ${SRCS:.c=.o}
 
-NAME	= libft
+NAME	= libft.a
 
 CC		= cc
 
 RM		= rm -f
 
-AR		= ar rc
+AR		= ar -rcs
 
 CFLAGS	= -Wall -Wextra -Werror -g
 
@@ -16,7 +16,7 @@ CFLAGS	= -Wall -Wextra -Werror -g
 		${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}:	${OBJS} ${HEADER}
-			${CC} -O ${NAME} ${OBJS}
+			${AR} ${NAME} ${OBJS}
 
 all:	${NAME}
 
@@ -27,3 +27,18 @@ fclean: clean
 		${RM} ${NAME}
 
 re:		fclean all
+
+TFILE	= test.c
+
+TNAME	= test
+
+TOBJS	= ${TFILE:.c=.o}
+
+test:	${TOBJS}
+		${CC} ${CFLAGS} ${TFILE} -L. -lft
+		./a.out ${ARGS}
+tclean:	fclean
+			${RM} ${TOBJS}
+			${RM} ${TNAME}
+			${RM} a.out
+			${RM} -drf a.out.dSYM

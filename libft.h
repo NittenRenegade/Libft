@@ -14,7 +14,10 @@
 
 #define LIBFT_H
 
-int	isalpha(int c)
-int	isdigit(int c)
+#include <unistd.h>
+
+int	isalpha(int c);
+int	isdigit(int c);
+int isalnum(int c);
 
 #endif

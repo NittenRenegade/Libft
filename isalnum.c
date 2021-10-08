@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isdigit.c                                          :+:      :+:    :+:   */
+/*   isalnum.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coskelet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 17:02:49 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/05 17:09:49 by coskelet         ###   ########.fr       */
+/*   Created: 2021/10/07 21:24:44 by coskelet          #+#    #+#             */
+/*   Updated: 2021/10/07 21:38:36 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isdigit(int c)
+#include "libft.h"
+
+int	isalnum(int c)
 {
-	if (c >= 48 && c <= 57)
-		return (c);
+	int	res;
+
+	res = isalpha(c);
+	if (res != 0)
+		return (res);
+	res = isdigit(c);
+	if (res != 0)
+		return (res);
 	return (0);
-}	
+}
