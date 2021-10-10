@@ -1,4 +1,4 @@
-SRCS	= isalpha.c isdigit.c isalnum.c isascii.c strlen.c
+SRCS	= isalpha.c isdigit.c isalnum.c isascii.c strlen.c memset.c bzero.c
 
 OBJS	= ${SRCS:.c=.o}
 

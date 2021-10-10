@@ -6,7 +6,7 @@
 /*   By: coskelet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:22:43 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/08 21:53:04 by                  ###   ########.fr       */
+/*   Updated: 2021/10/10 15:49:57 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 # include <stddef.h>
 
-int	isalpha(int c);
-int	isdigit(int c);
-int	isalnum(int c);
-int	isascii(int c);
-int	isprint(int c);
-size_t 	strlen(const char *s);
+int		isalpha(int c);
+int		isdigit(int c);
+int		isalnum(int c);
+int		isascii(int c);
+int		isprint(int c);
+size_t	strlen(const char *s);
+void	*memset(void *b, int c, size_t len);
+void	bzero(void *s, size_t n);
 
 #endif
