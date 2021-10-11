@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalnum.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coskelet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 21:24:44 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/07 21:38:36 by                  ###   ########.fr       */
+/*   Created: 2021/10/10 14:22:15 by                   #+#    #+#             */
+/*   Updated: 2021/10/11 21:34:53 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	isalnum(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	int	res;
+	size_t	i;
 
-	res = isalpha(c);
-	if (res != 0)
-		return (res);
-	res = isdigit(c);
-	if (res != 0)
-		return (res);
-	return (0);
+	i = 0;
+	while (i < n)
+	{
+		ft_memset(s, 0, n);
+		i++;
+	}
 }

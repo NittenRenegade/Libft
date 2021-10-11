@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_memmove.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coskelet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By:  <>                                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 20:44:34 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/10 15:53:53 by                  ###   ########.fr       */
+/*   Created: 2021/10/11 17:32:56 by                   #+#    #+#             */
+/*   Updated: 2021/10/11 17:33:14 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlen(const char *s)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	int		len;
+	size_t	i;
 
-	len = 0;
-	while (1)
+	i = 0;
+	while (i < n)
 	{
-		if (*(s + len) == 0)
-			break ;
-		len++;
+		*(char *)(dst + i) = *(char *)(src + i);
+		i++;
 	}
-	return (len);
+	return (dst);
 }
