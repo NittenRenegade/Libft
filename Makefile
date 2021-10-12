@@ -29,22 +29,4 @@ fclean: clean
 
 re:		fclean all
 
-TDIR	= tests/
-TFILE	= test.c
-
-TNAME	= test
-
-TOBJS	= ${TFILE:.c=.o}
-
-test:	${TOBJS}
-		${CC} ${CFLAGS} ${TDIR}${TFILE} -L. -lft
-		./a.out ${ARGS}
-
-retest:
-		${CC} ${CFLAGS} ${TDIR}${TFILE} -L. -lft
-
-tclean:	fclean
-			${RM} ${TOBJS}
-			${RM} ${TNAME}
-			${RM} a.out
-			${RM} -drf a.out.dSYM
+.PHONY:	all clean fclean re
