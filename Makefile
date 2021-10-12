@@ -1,10 +1,11 @@
-SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c
+SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_strlen.c ft_memset.c ft_bzero.c \
+ft_memcpy.c ft_memmove.c
 
 OBJS	= ${SRCS:.c=.o}
 
 NAME	= libft.a
 
-CC		= cc
+CC		= gcc
 
 RM		= rm -f
 
@@ -28,6 +29,7 @@ fclean: clean
 
 re:		fclean all
 
+TDIR	= tests/
 TFILE	= test.c
 
 TNAME	= test
@@ -35,11 +37,11 @@ TNAME	= test
 TOBJS	= ${TFILE:.c=.o}
 
 test:	${TOBJS}
-		${CC} ${CFLAGS} ${TFILE} -L. -lft
+		${CC} ${CFLAGS} ${TDIR}${TFILE} -L. -lft
 		./a.out ${ARGS}
 
 retest:
-		${CC} ${CFLAGS} ${TFILE} -L. -lft
+		${CC} ${CFLAGS} ${TDIR}${TFILE} -L. -lft
 
 tclean:	fclean
 			${RM} ${TOBJS}
