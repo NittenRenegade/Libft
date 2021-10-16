@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 13:08:06 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/15 13:08:06 by coskelet         ###   ########.fr       */
+/*   Created: 2021/10/15 18:29:38 by coskelet          #+#    #+#             */
+/*   Updated: 2021/10/16 18:52:50 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
+	int			src_len;
+	int			dst_len;
+	size_t		pos;
+
+	src_len = ft_strlen(src);
+	if (0 == dstsize)
+		return (src_len);
+	dst_len = ft_strlen(dst);
+	pos = 0;
+	while (pos < (dstsize - 1) && pos < (size_t)src_len)
+	{
+		*(dst + pos) = *(src + pos);
+		pos++;
+	}
+	*(dst + pos) = '\0';
+	return (src_len);
 }
