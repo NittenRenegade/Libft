@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 18:29:38 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/16 18:53:03 by coskelet         ###   ########.fr       */
+/*   Created: 2021/10/16 20:32:04 by coskelet          #+#    #+#             */
+/*   Updated: 2021/10/17 17:47:35 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-	int			src_len;
-	size_t		pos;
+	int	src_len;
+	int	dst_len;
+	int	size;
+	int	pos;
 
 	src_len = ft_strlen(src);
-	if (0 == dstsize)
-		return (src_len);
-	pos = 0;
-	while (pos < (dstsize - 1) && pos < (size_t)src_len)
+	dst_len = ft_strlen(dst);
+	size = (int)dstsize;
+	if (size <= dst_len)
+		return (size + src_len);
+	if (size <= dst_len + 1)
+		return (size - 1 + src_len);
+	pos = dst_len;
+	while (pos < size && pos < (src_len + dst_len))
 	{
 		*(dst + pos) = *(src + pos);
 		pos++;
 	}
 	*(dst + pos) = '\0';
-	return (src_len);
+	return (dst_len + src_len);
 }
