@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/15 13:08:06 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/15 13:08:06 by coskelet         ###   ########.fr       */
+/*   Created: 2021/10/18 15:01:55 by coskelet          #+#    #+#             */
+/*   Updated: 2021/10/18 15:11:06 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int	ft_tolower(int c)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < len)
+	if (c >= 65 && c <= 90)
 	{
-		*(unsigned char *)(b + i) = c;
-		i++;
+		return (c + 32);
 	}
-	return (b);
+	return (c);
 }
