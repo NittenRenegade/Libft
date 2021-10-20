@@ -6,7 +6,7 @@
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 13:08:06 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/20 19:46:45 by coskelet         ###   ########.fr       */
+/*   Updated: 2021/10/20 20:04:48 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdlib.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -36,5 +37,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *litte, size_t len);
 int		ft_atoi(const char *str);
+void	*ft_calloc(size_t nelem, size_t elsize);
+void	*ft_strdup(const char *s1);
 
 #endif

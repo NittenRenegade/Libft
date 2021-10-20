@@ -6,7 +6,7 @@
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 15:26:29 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/20 19:41:48 by coskelet         ###   ########.fr       */
+/*   Updated: 2021/10/20 20:45:03 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	parse_int(char *pos, short sign)
 		return (0);
 	res = 1;
 	base = 1;
-	while (fin_pos - pos > res)
+	while ((fin_pos - pos) / (int) sizeof (char) > res)
 	{
 		base *= 10;
 		res++;
