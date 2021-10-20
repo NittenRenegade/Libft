@@ -6,7 +6,7 @@
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 13:08:06 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/20 20:04:48 by coskelet         ###   ########.fr       */
+/*   Updated: 2021/10/20 21:25:57 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ char	*ft_strnstr(const char *big, const char *litte, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nelem, size_t elsize);
 void	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
