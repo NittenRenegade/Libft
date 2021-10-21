@@ -6,13 +6,13 @@
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 15:26:29 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/21 18:42:11 by coskelet         ###   ########.fr       */
+/*   Updated: 2021/10/21 20:14:45 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		parse_int(char **pos, char **fin, short sign, int res);
+static int		parse_int(char **pos, char **fin, short sign, long res);
 static char		*find_fin(char *pos, char **fin_pos);
 static char		*pass_space(const char *str, char *pos);
 static short	pass_sign(char **pos);
@@ -22,7 +22,7 @@ int	ft_atoi(const char *str)
 	char	*pos;
 	char	*fin_pos;
 	short	sign;
-	int		res;
+	long	res;
 
 	if (ft_strlen(str) == 0)
 		return (0);
@@ -38,17 +38,17 @@ int	ft_atoi(const char *str)
 	return (parse_int(&pos, &fin_pos, sign, res));
 }
 
-static int	parse_int(char **pos, char **fin_pos, short sign, int res)
+static int	parse_int(char **pos, char **fin_pos, short sign, long res)
 {
-	int		base;
+	long	base;
 
 	if (!find_fin(*pos, fin_pos))
 		return (0);
 	base = 1;
 	while ((*fin_pos - *pos) / (int) sizeof (char) > res)
 	{
-		if (res > 9)
-			sign *= 10;
+		if (res > 18)
+			sign *= 2;
 		base *= 10;
 		res++;
 	}
@@ -63,7 +63,7 @@ static int	parse_int(char **pos, char **fin_pos, short sign, int res)
 			return (0);
 		base /= 10;
 	}
-	return (res);
+	return ((int)res);
 }
 
 static char	*find_fin(char *pos, char **fin_pos)
