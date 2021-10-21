@@ -6,13 +6,13 @@
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 15:26:29 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/20 20:45:03 by coskelet         ###   ########.fr       */
+/*   Updated: 2021/10/21 18:42:11 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		parse_int(char *pos, short sign);
+static int		parse_int(char **pos, char **fin, short sign, int res);
 static char		*find_fin(char *pos, char **fin_pos);
 static char		*pass_space(const char *str, char *pos);
 static short	pass_sign(char **pos);
@@ -20,7 +20,9 @@ static short	pass_sign(char **pos);
 int	ft_atoi(const char *str)
 {
 	char	*pos;
+	char	*fin_pos;
 	short	sign;
+	int		res;
 
 	if (ft_strlen(str) == 0)
 		return (0);
@@ -31,30 +33,34 @@ int	ft_atoi(const char *str)
 	sign = pass_sign(&pos);
 	if (0 == sign)
 		return (0);
-	return (parse_int(pos, sign));
+	fin_pos = pos;
+	res = 1;
+	return (parse_int(&pos, &fin_pos, sign, res));
 }
 
-static int	parse_int(char *pos, short sign)
+static int	parse_int(char **pos, char **fin_pos, short sign, int res)
 {
-	char	*fin_pos;
-	int		res;
 	int		base;
 
-	fin_pos = pos;
-	if (!find_fin(pos, &fin_pos))
+	if (!find_fin(*pos, fin_pos))
 		return (0);
-	res = 1;
 	base = 1;
-	while ((fin_pos - pos) / (int) sizeof (char) > res)
+	while ((*fin_pos - *pos) / (int) sizeof (char) > res)
 	{
+		if (res > 9)
+			sign *= 10;
 		base *= 10;
 		res++;
 	}
-	res = (*pos - '0') * sign * base;
+	res = (**pos - '0') * sign * base;
 	base /= 10;
-	while (++pos < fin_pos)
+	while (++(*pos) < *fin_pos)
 	{
-		res += (*pos - '0') * sign * base;
+		res += (**pos - '0') * sign * base;
+		if (sign > 0 && (sign > 1 || res < 0))
+			return (-1);
+		if (sign < 0 && (sign < -1 || res > 0))
+			return (0);
 		base /= 10;
 	}
 	return (res);
