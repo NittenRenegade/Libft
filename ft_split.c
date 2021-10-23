@@ -6,7 +6,7 @@
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 20:23:31 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/22 22:18:35 by coskelet         ###   ########.fr       */
+/*   Updated: 2021/10/22 22:20:26 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	**ft_split(char const *s, char c)
 	b_ch[0] = (char *)s;
 	b_ch[1] = &c;
 	b_ch[2] = NULL;
+	b_ch[3] = NULL;
 	b_st[0] = 0;
 	b_st[1] = 0;
 	b_st[3] = ft_strlen(s);
