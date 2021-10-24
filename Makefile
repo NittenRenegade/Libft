@@ -8,7 +8,11 @@ SRCS	=	ft_strlen.c		ft_isalpha.c	ft_toupper.c	ft_memchr.c \
 			ft_strjoin.c	ft_strlcat.c 					ft_putendl_fd.c \
 			ft_striteri.c	ft_strmapi.c					ft_putnbr_fd.c
 
+SRCS_B	=	ft_lstnew.c		ft_lstadd_front.c
+
 OBJS	= ${SRCS:.c=.o}
+
+OBJS_B	= ${SRCS_B:.c=.o}
 
 HEADER	= libft.h
 
@@ -22,17 +26,21 @@ AR		= ar -rcs
 
 CFLAGS	= -Wall -Wextra -Werror -g
 
-.c.o:
-		${CC} ${CFLAGS} -c $< -o $@
-
 ${NAME}:	${OBJS} ${HEADER}
 			${AR} ${NAME} ${OBJS}
 			${MAKE} clean
+.c.o:
+		${CC} ${CFLAGS} -c $< -o $@
+
+bonus:	${OBJS} ${HEADER} ${OBJS_B}
+		${AR} ${NAME} ${OBJS_B}
+		${MAKE} clean
 
 all:	${NAME}
 
 clean:
 		${RM} ${OBJS}
+		${RM} ${OBJS_B}
 
 fclean: clean
 		${RM} ${NAME}
