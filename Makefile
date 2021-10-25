@@ -8,7 +8,9 @@ SRCS	=	ft_strlen.c		ft_isalpha.c	ft_toupper.c	ft_memchr.c \
 			ft_strjoin.c	ft_strlcat.c 					ft_putendl_fd.c \
 			ft_striteri.c	ft_strmapi.c					ft_putnbr_fd.c
 
-SRCS_B	=	ft_lstnew.c		ft_lstadd_front.c				ft_lstsize.c
+SRCS_B	=	ft_lstnew.c		ft_lstadd_front.c				ft_lstsize.c \
+			ft_lstlast.c	ft_lstadd_back.c				ft_lstdelone.c \
+			ft_lstclear.c	ft_lstiter.c
 
 OBJS	= ${SRCS:.c=.o}
 
