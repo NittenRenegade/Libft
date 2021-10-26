@@ -38,31 +38,3 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-
-/*void	*ft_memmove(void *dst, const void *src, size_t n)
-{
-	size_t			i;
-	size_t			s;
-	unsigned char	*src_c;
-	unsigned char	*dst_c;
-
-	s = n - 1;
-	src_c = (unsigned char *)src;
-	dst_c = (unsigned char *)dst;
-	if (src < dst && (src_c + s) >= dst_c)
-	{
-		while (s >= 0)
-		{
-			*(dst_c + s) = *(src_c + s);
-			s--;
-		}
-		return (dst);
-	}
-	i = 0;
-	while (i <= s)
-	{
-		*(dst_c + i) = *(src_c + i);
-		i++;
-	}
-	return (dst);
-}*/
