@@ -1,3 +1,7 @@
+NAME	= libft.a
+
+HEADER	= libft.h
+
 SRCS	=	ft_strlen.c		ft_isalpha.c	ft_toupper.c	ft_memchr.c \
 			ft_strchr.c		ft_isdigit.c 	ft_tolower.c	ft_memset.c \
 			ft_strrchr.c	ft_isalnum.c	ft_atoi.c		ft_memcpy.c \
@@ -12,41 +16,36 @@ SRCS_B	=	ft_lstnew.c		ft_lstadd_front.c				ft_lstsize.c \
 			ft_lstlast.c	ft_lstadd_back.c				ft_lstdelone.c \
 			ft_lstclear.c	ft_lstiter.c					ft_lstmap.c
 
+.PHONY:	all clean fclean re bonus
+
 OBJS	= ${SRCS:.c=.o}
 
 OBJS_B	= ${SRCS_B:.c=.o}
 
-HEADER	= libft.h
-
-NAME	= libft.a
-
-CC		= gcc
+CC		= cc
 
 RM		= rm -f
 
 AR		= ar -rcs
 
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror -I$(HEADER)
 
-${NAME}:	${OBJS} ${HEADER}
-			${AR} ${NAME} ${OBJS}
-			${MAKE} clean
+$(NAME):	${OBJS} ${HEADER}
+			${AR} ${NAME} $?
+
 .c.o:
 		${CC} ${CFLAGS} -c $< -o $@
 
-bonus:	${OBJS} ${HEADER} ${OBJS_B}
-		${AR} ${NAME} ${OBJS_B}
-		${MAKE} clean
+bonus:
+		@make OBJS="$(OBJS_B)" all
+
 
 all:	${NAME}
 
 clean:
-		${RM} ${OBJS}
-		${RM} ${OBJS_B}
+		${RM} ${OBJS} ${OBJS_B}
 
 fclean: clean
 		${RM} ${NAME}
 
 re:		fclean all
-
-.PHONY:	all clean fclean re
