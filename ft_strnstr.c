@@ -6,7 +6,7 @@
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 19:37:04 by coskelet          #+#    #+#             */
-/*   Updated: 2021/10/19 21:54:29 by coskelet         ###   ########.fr       */
+/*   Updated: 2021/10/25 22:33:18 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	lens[4];
 
-	if ('\n' == *little)
+	if ('\0' == *little)
 		return ((char *)big);
 	lens[0] = len;
 	lens[1] = ft_strlen(big);
@@ -36,7 +36,7 @@ static char	*find_str(const char *big, const char *little, size_t *lens)
 	size_t	j;
 
 	i = 0;
-	while ((lens[3] - i) > lens[2] && *(big + i) != '\n')
+	while ((lens[2] + i) <= lens[3] && *(big + i) != '\n')
 	{
 		j = 0;
 		while (*(little + j) != '\n' && j <= lens[0])
