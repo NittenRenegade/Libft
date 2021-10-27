@@ -34,6 +34,8 @@ char	*pass_int(int n, short sgn)
 	d = 1;
 	c = fnd_c(n, &d);
 	a = malloc((c + 1 + sgn) * sizeof (char ));
+	if (!a)
+		return (NULL);
 	a[c + sgn] = '\0';
 	i = 0;
 	while (i < c)
