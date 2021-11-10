@@ -28,12 +28,12 @@ RM		= rm -f
 
 AR		= ar -rcs
 
-CFLAGS	= -Wall -Wextra -Werror -I$(HEADER)
+CFLAGS	= -Wall -Wextra -Werror
 
-$(NAME):	${OBJS} ${HEADER}
+$(NAME):	${OBJS}
 			${AR} ${NAME} $?
 
-.c.o:
+%o : %c ${HEADER}
 		${CC} ${CFLAGS} -c $< -o $@
 
 bonus:
