@@ -6,7 +6,7 @@
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 22:27:36 by coskelet          #+#    #+#             */
-/*   Updated: 2021/11/09 12:42:21 by coskelet         ###   ########.fr       */
+/*   Updated: 2021/11/10 20:05:45 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	pos_strt;
 
+	if (!s1)
+		return (NULL);
 	pos_strt = pass_left(s1, set);
 	return (ft_substr(s1, pos_strt, get_end(s1, pos_strt, set)));
 }

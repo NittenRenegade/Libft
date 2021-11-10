@@ -23,6 +23,8 @@ char	**ft_split(char const *s, char c)
 	char	*b_ch[4];
 	size_t	b_st[4];
 
+	if (!s)
+		return (NULL);
 	b_ch[0] = (char *)s;
 	b_ch[1] = &c;
 	b_ch[2] = NULL;

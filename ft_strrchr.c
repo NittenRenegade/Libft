@@ -6,7 +6,7 @@
 /*   By: coskelet <coskelet@il-c2.msk.21-school.ru> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:40:19 by coskelet          #+#    #+#             */
-/*   Updated: 2021/11/09 12:42:21 by coskelet         ###   ########.fr       */
+/*   Updated: 2021/11/10 18:26:27 by coskelet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	i;
+	char	*pos;
+	char	*smb;
 
-	i = ft_strlen(s);
-	while (i > 0)
+	smb = (char *) 0;
+	pos = (char *) s;
+	while (1)
 	{
-		if (*(s + i) == (char)c)
-			return ((char *)(s + i));
-		i--;
+		if (*pos == (char) c)
+			smb = pos;
+		if (!*pos)
+			break ;
+		pos++;
 	}
-	if (*(s + i) == (char)c)
-		return ((char *)(s + i));
-	return (NULL);
+	return (smb);
 }
